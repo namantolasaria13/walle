@@ -13,30 +13,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* -------------------------------------------------------------------------- */
 
 // theme set 
- var previousSwitchState = [false, false, false];
+var previousSwitchState = [false, false];
 
-    function toggleTheme() {
-      var switch1 = document.getElementById("switch1").querySelector("input[type='checkbox']").checked;
-      var switch2 = document.getElementById("switch2").querySelector("input[type='checkbox']").checked;
-      var switch3 = document.getElementById("switch3").querySelector("input[type='checkbox']").checked;
+function toggleTheme() {
+  var switch1 = document.getElementById("switch1").querySelector("input[type='checkbox']").checked;
+  var switch2 = document.getElementById("switch2").querySelector("input[type='checkbox']").checked;
 
-      if (switch1 && switch2 && switch3) {
-        document.body.style.background = 'linear-gradient(to right, purple, goldenrod, white)';
-      } else if (!switch1 && !switch2 && !switch3 && previousSwitchState[0] && previousSwitchState[1] && previousSwitchState[2]) {
-        document.body.style.backgroundColor = 'black';
-      } else if (switch1 && !switch2 && !switch3) {
-        document.body.style.backgroundColor = 'purple';
-      } else if (!switch1 && switch2 && !switch3) {
-        document.body.style.backgroundColor = 'goldenrod';
-      } else if (!switch1 && !switch2 && switch3) {
-        document.body.style.backgroundColor = 'white';
-      } else {
-        document.body.style.backgroundColor = 'black';
-      }
+  if (switch1 && switch2) {
+    document.body.style.background = 'linear-gradient(to right, #8a2be2, #a64df2, #c574ff, #d99bff, #ecc2ff)';
+  } else if (!switch1 && !switch2) {
+    document.body.style.background = 'linear-gradient(to right, #000000, #111111, #222222)';
+  } else if (switch1) {
 
-      // Update previous switch state
-      previousSwitchState = [switch1, switch2, switch3];
-    }
+    document.body.style.background = 'linear-gradient(to right, #8a2be2, #a64df2, #c574ff, #d99bff)';
+  } else if (switch2) {
+    document.body.style.background = 'linear-gradient(to right, #333333, #888888)';
+  }
+
+  // Update previous switch state
+  previousSwitchState = [switch1, switch2];
+}
 
 
 
